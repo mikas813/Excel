@@ -13,7 +13,10 @@
     "spaced-comment": "off",
     "no-useless-escape": "off",
     "require-jsdoc": "off",
-    "semi-spacing": "off"
+    "semi-spacing": "off",
+    "no-trailing-spaces": "off",
+    "operator-linebreak": "off",
+    "eol-last": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }
