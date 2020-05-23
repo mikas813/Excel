@@ -19,15 +19,27 @@ class Dom {
   }
 
   on(eventType, callback) {
-    this.$el.addEventListener(eventType, callback)
+    this.$el.addEventListener( eventType, callback )
+  }
+
+  findAll(selector) {
+    return this.$el.querySelectorAll( selector )
+  }
+
+  css(styles = {}) {
+    Object
+      .keys( styles )
+      .forEach( key => {
+        this.$el.style[key] = styles[key]
+    } )
   }
 
   off(eventType, callback) {
-    this.$el.removeEventListener(eventType, callback)
+    this.$el.removeEventListener( eventType, callback )
   }
 
   append(node) {
-    if (node instanceof Dom ) {
+    if (node instanceof Dom) {
       node = node.$el
     }
     if (Element.prototype.append) {
@@ -35,6 +47,18 @@ class Dom {
     } else {
       this.$el.appendChild( node )
     }
+  }
+
+  get data() {
+    return this.$el.dataset
+  }
+
+  closest(selector) {
+    return $( this.$el.closest( selector ) )
+  }
+
+  getCoords() {
+    return this.$el.getBoundingClientRect()
   }
 }
 
